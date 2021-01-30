@@ -1,1 +1,3 @@
-# Pattern-Recognition-Auth-2021
+# Εxercises for Pattern Recognition course in Faculty of Engineering of Aristotle's University of Thessaloniki
+
+9th semester - R code
