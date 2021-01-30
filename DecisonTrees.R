@@ -48,7 +48,7 @@ GINI_High = 1 - freq["High", "No"]^2 - freq["High", "Yes"]^2
 GINI_Low = 1 - freq["Low", "No"]^2 - freq["Low", "Yes"]^2
 GINI_Humidity = freqSum["High"] * GINI_High + freqSum["Low"] * GINI_Low
 
-#or use function Gini
+#or use my function Gini
 GinisOutlook = Gini(weather,1,4)
 GinisTemperature = Gini(weather,2,4)
 GinisHumidity = Gini(weather,3,4)
@@ -80,7 +80,7 @@ Entropy_High = - freq["High", "No"] * log2(freq["High", "No"]) - freq["High", "Y
 Entropy_Low = - freq["Low", "No"] * log2(freq["Low", "No"]) - freq["Low", "Yes"] * log2(freq["Low", "Yes"])
 GAIN_Humidity = Entropy_All - freqSum["High"] * Entropy_High - freqSum["Low"] * Entropy_Low
 
-#or use functions EntropyAll and InfoGain
+#or use my functions EntropyAll and InfoGain
 Entropy = EntropyAll(weather,4)
 GainOutlook = InfoGain(weather,1,4) # first value of Partial Entropy corresponds to sunny
 GainTemperature = Gini(weather,2,4)
@@ -102,9 +102,11 @@ testdata = iris2[c(41:50, 91:100, 141:150),]
 
 # Construct the decision tree using the training data 
 model1 <- rpart(Species ~ ., method = "class", data = trainingdata, minsplit = 20)
-# rpart.plot(model, extra = 104, nn = TRUE)
+rpart.plot(model1, extra = 104, nn = TRUE)
 model2 <- rpart(Species ~ ., method = "class", data = trainingdata, minsplit = 10)
+rpart.plot(model2, extra = 104, nn = TRUE)
 model3 <- rpart(Species ~ ., method = "class", data = trainingdata, minsplit = 30)
+rpart.plot(model3, extra = 104, nn = TRUE)
 
 # Apply the model to the testing data
 xtest = testdata[,1:2]
