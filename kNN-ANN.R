@@ -65,12 +65,3 @@ yEstimateTest = compute(model, testdata[, c(1:2)])$net.result
 TestingError = testdata$y - yEstimateTest
 MAE = mean(abs(TestingError))
 plot(hist(TestingError, breaks = 20))
-
-
-
-
-
-
-
-
-
